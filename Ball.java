@@ -13,6 +13,7 @@ public class Ball {
 	private int y = 25;
 	private double dx = 0;
 	private double dy = 0;
+	private double gameDy = -75;
 	private int radius = 20;
 	
 	public Ball() {
@@ -24,7 +25,48 @@ public class Ball {
 		x = i;
 		y = j;
 	}
-
+	
+	
+	public int getX() {
+		return x;
+	}
+	public void setX(int x) {
+		this.x = x;
+	}
+	public int getY() {
+		return y;
+	}
+	public void setY(int y) {
+		this.y = y;
+	}
+	public double getDx() {
+		return dx;
+	}
+	public double getDy() {
+		return dy;
+	}
+	public void setDx(double dx) {
+		this.dx = dx;
+	}
+	public void setDy(double dy) {
+		this.dy = dy;
+	}
+	public double getGravity() {
+		return gravity;
+	}
+	public void setGravity(double gravity) {
+		this.gravity = gravity;
+	}
+	public int getRadius() {
+		return radius;
+	}
+	public double getGameDy() {
+		return gameDy;
+	}
+	public void setGameDy(double gameDy) {
+		this.gameDy = gameDy;
+	}
+	
 	/**
 	 * moves the ball to the right
 	 */
@@ -71,7 +113,7 @@ public class Ball {
 			y = sp.getHeight() - radius - 1;
 			//makes the ball slow down after each bounce
 			dy *= energyloss;
-			dy = - dy;
+			dy = gameDy;
 		}else{
 			//velocity formula
 			dy = dy + gravity * dt;
